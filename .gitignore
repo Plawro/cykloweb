@@ -19,3 +19,6 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+/vendor/fontawesome/font-awesome/
+assets/logos
+assets/stages

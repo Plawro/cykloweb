@@ -1,0 +1,196 @@
+CRITICAL - 2024-09-23 17:14:20 --> ErrorException: Undefined variable $array
+[Method: GET, Route: /]
+in APPPATH\Views\home.php on line 8.
+ 1 APPPATH\Views\home.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $array', 'C:\\laragon\\www\\app\\Views\\home.php', 8)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\app\\Views\\home.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home', [], true)
+ 5 APPPATH\Controllers\Home.php(20): view('home')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:20:13 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:20:31 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:20:32 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:21:19 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:21:20 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:22:02 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:22:23 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:22:24 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:22:25 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:22:25 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:24:08 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:24:09 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:24:24 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-23 17:24:24 --> ErrorException: include(C:\laragon\www\vendor\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in FCPATH\vendor\composer\ClassLoader.php on line 576.
+ 1 FCPATH\vendor\composer\ClassLoader.php(576): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\vendor\\composer\\ClassLoader.php', 576)
+ 2 FCPATH\vendor\composer\ClassLoader.php(576): include()
+ 3 FCPATH\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\vendor\\composer/../../app/Models/Race.php')
+ 4 APPPATH\Controllers\Home.php(14): Composer\Autoload\ClassLoader->loadClass('App\\Models\\Race')
+ 5 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Home->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

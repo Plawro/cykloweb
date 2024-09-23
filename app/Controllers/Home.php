@@ -3,21 +3,22 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Race;
+use App\Models\RaceModel as raceModel;
 
 class Home extends BaseController
 {
-    var $race;
-    var $raceyear;
+    var $raceModel;
 
     public function __construct()
     {
-        $this->race = new Race();
+        $this->raceModel = new RaceModel();
     }
 
     public function index(): string
     {
-        return view('home');
+        $data['title']="Cykloweb - domů";
+        $data['array']= $this->raceModel->orderBy("default_name","asc")->paginate(25); //or findAll()
+        return view('home',$data);
     }
 
     public function teams(): string
@@ -27,9 +28,7 @@ class Home extends BaseController
 
     public function races(): string
     {
-        $data['race'] = $this->race->paginate(25);
-        $data['pager'] = $this->race->pager;
-        return view('races', $data);
+        
     }
 
     public function race(): string
