@@ -18,6 +18,7 @@ class Home extends BaseController
     {
         $data['title']="Cykloweb - domů";
         $data['array']= $this->raceModel->orderBy("default_name","asc")->paginate(25); //or findAll()
+        $data['pager'] = $this->raceModel->pager;
         return view('home',$data);
     }
 

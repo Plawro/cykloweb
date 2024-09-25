@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => '127.0.0.1',
+        'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '',
-        'database'     => 'cykloweb',
+        'database'     => 'cycling',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
