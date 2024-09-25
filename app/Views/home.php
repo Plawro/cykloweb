@@ -29,7 +29,7 @@ $template = array(
     $table->setHeading('Název závodu','Vlajka');
     foreach($array as $row){
         $flag = '<span class="fi fi-'.$row->country.'"></span>';
-        $table->addRow(anchor("zavod/".$row->id,$row->default_name),$flag);
+        $table->addRow(anchor("race/".$row->id,$row->default_name),$flag);
     } 
     echo $table->generate();
     echo $pager->links();
