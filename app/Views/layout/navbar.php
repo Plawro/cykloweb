@@ -3,7 +3,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Závody</a>
+                    <?= anchor('races', 'Závody', 'class="nav-link"') ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Týmy</a>
@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" href="#">Cykloweb</a>
+        <?= anchor('/', 'Cykloweb', 'class="navbar-brand mx-auto"') ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>

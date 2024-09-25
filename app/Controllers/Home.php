@@ -29,7 +29,9 @@ class Home extends BaseController
 
     public function races(): string
     {
-        
+        $data['title']="Cykloweb - Závody";
+        $data['array']= $this->raceModel->orderBy("default_name","asc")->paginate(25); //or findAll()
+        return view('races',$data);
     }
 
     public function race(): string
