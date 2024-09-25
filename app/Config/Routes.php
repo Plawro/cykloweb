@@ -6,4 +6,4 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('races', 'Home::races');
+$routes->get('race/(:num)', 'Home::race/$1');

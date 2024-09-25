@@ -1,14 +1,9 @@
-<?=$this->extend("layout/master");?>
-<?=$this->section("content");?>
-
 
 <?php
-    foreach($array as $row){
-        echo "<div class='container'>
-                <p>".$row->default_name."</p>
-             </div>";
-    } 
-?>
+echo "<h1>Závody</h1>";
 
+foreach($race as $row){
+    $flag = '<span"'.$row->country.'"></span>';
+}
 
-<?=$this->endSection();?>
+echo $pager->links();
