@@ -1,12 +1,11 @@
 <?=$this->extend("layout/master");?>
 
 <?=$this->section("content");?>
-
+<h1 class="text-center mt-3">Přehled etap závodu: <?= $name->real_name ?></h1>
 <?php
-
 $table = new \CodeIgniter\View\Table();
 $template = array(
-    'table_open'=> '<table class="table table-bordered mt-5">',
+    'table_open'=> '<table class="table table-bordered table-striped table-hover mt-5">',
     'thead_open'=> '<thead>',
     'thead_close'=> '</thead>',
     'heading_row_start'=> '<tr>',
@@ -25,22 +24,18 @@ $template = array(
     'cell_alt_end' => '</td>',
     'table_close' => '</table>'
     );
-    
     $table->setTemplate($template);
 
-$table->setHeading('Název','Ročník','Datum','Logo','Kategorie','Počet etap', 'Délka etap');
-foreach ($raceyear as $row) {
-    if($row->start_date != $row->end_date){
-        $multiDay = date('d.m.Y', strtotime($row->start_date)) . ' až ' . date('d.m.Y', strtotime($row->end_date));
+$table->setHeading('Číslo etapy','Datum','Start etapy','Cíl etapy','Délka etap', 'Typ etapy', 'Převýšení', 'Logo', 'Výsledky');
+foreach ($stage as $row) {
+    $date = new DateTime($row->date);
+    $formattedDate = $date->format('d.m.Y');
+    if($row->profile == ''){
+        $profil = 'Není přidaný profil';
     }else{
-        $multiDay = $row->start_date;
+        $profil = '<img src="'.base_url('vendor/profiles/'.$row->profile).'" class="img-fluid logo ">';
     }
-    if($row->logo == ''){
-        $logo = 'Není přidané logo';
-    }else{
-        $logo = '<img src="'.base_url('vendor/images/'.$row->logo).'" class="img-fluid logo h-50">';
-    }
-    $table->addRow($row->real_name,$row->year,$multiDay,$logo,$row->category,anchor('etapa/'.$row->id_race_year,$row->pocet), $row->delka);
+    $table->addRow($row->number,$formattedDate,$row->departure,$row->arrival,$row->distance,$row->name,$row->vertical_meters, $profil, anchor('vysledky/'.$row->id,'Výsledky'));
 }
 echo $table->generate();
 ?>
