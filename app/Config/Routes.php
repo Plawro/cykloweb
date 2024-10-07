@@ -6,5 +6,8 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('race/(:num)', 'Home::race/$1');
-$routes->get('etapa/(:num)', 'Main::etapa/$1');
+$routes->get('race/(:any)', 'Home::race/$1');
+$routes->get('races', 'Home::races');
+$routes->get('rider/(:any)', 'Home::rider/$1');
+$routes->get('etapa/(:num)', 'Home::etapa/$1');
+$routes->get('genpdf', 'Home::generatePDF');

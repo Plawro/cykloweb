@@ -2,6 +2,44 @@
 <?=$this->section("content");?>
 
 
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Lokace', 'Závodníci', 'Závody', 'Stage'],
+      datasets: [{
+        label: '# of Votes',
+        data: [<?=$locations ?>, <?=$riders ?>, <?=$races ?>, <?=$stages ?>],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  
+</script>
+
+<?php
+$path = 'assets/abc.jpg';
+$type = pathinfo($path, PATHINFO_EXTENSION);
+$data = file_get_contents($path);
+$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+?>
+<img src="<?php echo $base64?>" width="150" height="150"/>
+
 <?php
 $table = new \CodeIgniter\View\Table();
 $template = array(
@@ -26,13 +64,11 @@ $template = array(
     );
     $table->setTemplate($template);
 
-    $table->setHeading('Název závodu','Vlajka');
+    $table->setHeading('Název závodu');
     foreach($array as $row){
-        $flag = '<span class="fi fi-'.$row->country.'"></span>';
-        $table->addRow(anchor("race/".$row->id,$row->default_name),$flag);
+        $table->addRow(anchor("race/".$row->id,$row->default_name));
     } 
     echo $table->generate();
-    echo $pager->links();
 ?>
 
 
