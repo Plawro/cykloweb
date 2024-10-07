@@ -58,6 +58,7 @@ class Home extends BaseController
 
     public function index()
     {
+        $data['isPDF'] = false;
         $data['title']="Cykloweb - domů";
         $data['races'] = $this->raceModel->countAllResults();
         $data['locations'] = $this->locationModel->countAllResults();

@@ -38,7 +38,10 @@ $type = pathinfo($path, PATHINFO_EXTENSION);
 $data = file_get_contents($path);
 $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 ?>
+<div style="display: <?= $isPDF ? 'block' : 'none'; ?>">
 <img src="<?php echo $base64?>" width="150" height="150"/>
+</div>
+
 
 <?php
 $table = new \CodeIgniter\View\Table();
