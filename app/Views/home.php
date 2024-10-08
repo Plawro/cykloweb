@@ -67,11 +67,13 @@ $template = array(
     );
     $table->setTemplate($template);
 
-    $table->setHeading('Název závodu');
+    $table->setHeading('Název závodu','Vlajka');
     foreach($array as $row){
-        $table->addRow(anchor("race/".$row->id,$row->default_name));
+        $flag = '<span class="fi fi-'.$row->country.'"></span>';
+        $table->addRow(anchor("race/".$row->id,$row->default_name),$flag);
     } 
     echo $table->generate();
+    echo $pager->links();
 ?>
 
 

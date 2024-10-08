@@ -65,6 +65,7 @@ class Home extends BaseController
         $data['riders'] = $this->riderModel->countAllResults();
         $data['stages'] = $this->stageModel->countAllResults();
         $data['array']= $this->raceModel->orderBy("id","asc")->paginate(25); //or findAll()
+        $data['pager'] = $this->raceModel->pager;
         return view('home',$data);
     }
 
@@ -78,7 +79,7 @@ class Home extends BaseController
 
     public function rider($id)
     {
-        //$data['rider'] = $this->riderModel->find($id);
+        $data['rider'] = $this->riderModel->find($id);
         $data['rider'] = $this->riderModel
         ->select('rider.*, location.name as place_of_birth_name')
         ->join('location', 'rider.place_of_birth = location.id', 'left')
@@ -105,8 +106,44 @@ class Home extends BaseController
      */
     function etapa($id){
         $data['name'] = $this->raceYear->find($id);
-        $data['stage'] = $this->stage->join('parcour_type','parcour_type.id = stage.parcour_type')->where('id_race_year',$id)->orderBy('date','asc')->findAll();
+        $data['stage'] = $this->stageModel->join('parcour_type','parcour_type.id = stage.parcour_type')->where('id_race_year',$id)->orderBy('date','asc')->findAll();
         $data['title'] = 'Etapa';
         echo view('etapa', $data);
+    }
+
+    function addSloupec() {
+        $data["title"] = "Přidání sloupce";
+        return view("add-sloupec", $data);
+    }
+
+    function addSloupecComplete() {
+        $first_name = $this->request->getPost('first_name');
+        $last_name = $this->request->getPost('last_name');
+        $country = $this->request->getPost('country');
+        $date_of_birth = $this->request->getPost('date_of_birth');
+        $place_of_birth = $this->request->getPost('place_of_birth');
+        $photo = $this->request->getPost('photo');
+        $weight = $this->request->getPost('weight');
+        $height = $this->request->getPost('height');
+        $link = $this->request->getPost('link');
+        $place_link = $this->request->getPost('place_link');
+        $inResults = $this->request->getPost('inResults');
+
+        $data = array(
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'country' => $country,
+            'date_of_birth' => $date_of_birth,
+            'place_of_birth' => $place_of_birth,
+            'photo' => $photo,
+            'weight' => $weight,
+            'height' => $height,
+            'link' => $link,
+            'place_link' => $place_link,
+            'inResults' => $inResults
+        );
+        
+        $this->riderModel->save($data);
+        return redirect()->route('rider/1');
     }
 }
