@@ -14,3 +14,13 @@ $routes->get('genpdf', 'Home::generatePDF');
 
 $routes->get('add-sloupec/novy', 'VesmirController::addSloupec');
 $routes->post('add-sloupec/novy/complete', 'VesmirController::addSloupecComplete');
+
+$routes->get('login','Auth::login');
+$routes->get('register','Auth::register');
+$routes->get('logout','Auth::logoutComplete');
+
+$routes->post('loginComplete','Auth::loginComplete');
+$routes->post('registerComplete','Auth::registerComplete');
+$routes->group('admin', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('dashboard','Home::index');
+});

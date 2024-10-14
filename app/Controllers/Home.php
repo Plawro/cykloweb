@@ -3,11 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\RaceModel as raceModel;
 use App\Models\RiderModel as riderModel;
 use App\Models\StageModel as stageModel;
 use App\Models\LocationModel as locationModel;
 use App\Models\RaceYear as raceYear;
+use \IonAuth\Libraries\IonAuth;
 
 
 use Dompdf\Dompdf;
@@ -21,6 +23,13 @@ class Home extends BaseController
     var $stageModel;
     var $locationModel;
 
+    var $ionAuth;
+
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, ResponseInterface $response, \Psr\Log\LoggerInterface $logger){
+        parent::initController($request, $response, $logger);
+        $this->ionAuth = new IonAuth();
+    }
+
     public function __construct()
     {
         $this->raceModel = new RaceModel();
@@ -33,6 +42,9 @@ class Home extends BaseController
     public function generatePDF()
     {
         $data['isPDF'] = true;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['title']="Cykloweb - domů";
         $data['races'] = $this->raceModel->countAllResults();
         $data['locations'] = $this->locationModel->countAllResults();
@@ -59,6 +71,9 @@ class Home extends BaseController
     public function index()
     {
         $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['title']="Cykloweb - domů";
         $data['races'] = $this->raceModel->countAllResults();
         $data['locations'] = $this->locationModel->countAllResults();
@@ -71,6 +86,10 @@ class Home extends BaseController
 
     public function race($id)
     {
+        $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['race'] = $this->raceModel->find($id);
         $data['raceyear'] = $this->raceYear->select('Count(*) as pocet, real_name, year, start_date, end_date, logo, category, id_race_year, Sum(distance) as delka')->join('stage','stage.id_race_year = race_year.id')->where('id_race',$id)->orderBy('year','desc')->groupBy('stage.id_race_year')->findAll();
         $data['title'] = 'Závod';
@@ -79,6 +98,10 @@ class Home extends BaseController
 
     public function rider($id)
     {
+        $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['rider'] = $this->riderModel->find($id);
         $data['rider'] = $this->riderModel
         ->select('rider.*, location.name as place_of_birth_name')
@@ -94,6 +117,9 @@ class Home extends BaseController
     }
 
     function races(){
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['title']="Cykloweb - závody";
         $data['array']= $this->raceModel->orderBy("id","asc")->paginate(25); //or findAll()
         $data['pager'] = $this->raceModel->pager;
@@ -106,6 +132,9 @@ class Home extends BaseController
      */
     function etapa($id){
         $data['name'] = $this->raceYear->find($id);
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
         $data['stage'] = $this->stageModel->join('parcour_type','parcour_type.id = stage.parcour_type')->where('id_race_year',$id)->orderBy('date','asc')->findAll();
         $data['title'] = 'Etapa';
         echo view('etapa', $data);

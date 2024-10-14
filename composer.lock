@@ -4,8 +4,61 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5dd18ee288e0660c0180c510cbc6ba6",
+    "content-hash": "d0caa2e0afe5cbfba53cbd99cbde4913",
     "packages": [
+        {
+            "name": "benedmunds/codeigniter-ion-auth",
+            "version": "4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/benedmunds/CodeIgniter-Ion-Auth.git",
+                "reference": "08c925057f02ce1674490a901d89ac7667eba1db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/benedmunds/CodeIgniter-Ion-Auth/zipball/08c925057f02ce1674490a901d89ac7667eba1db",
+                "reference": "08c925057f02ce1674490a901d89ac7667eba1db",
+                "shasum": ""
+            },
+            "require": {
+                "codeigniter4/framework": "^v4.3"
+            },
+            "require-dev": {
+                "codeigniter4/codeigniter4-standard": "^1.0",
+                "phpunit/phpunit": "^7.3",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IonAuth\\": "/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben EDMUNDS"
+                },
+                {
+                    "name": "Benoit VRIGNAUD",
+                    "email": "benoit.vrignaud@tangue.fr"
+                }
+            ],
+            "description": "Simple and Lightweight Auth System for CodeIgniter",
+            "homepage": "http://benedmunds.com/ion_auth",
+            "keywords": [
+                "auth",
+                "codeigniter"
+            ],
+            "support": {
+                "source": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/tree/4",
+                "issues": "https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues"
+            },
+            "time": "2024-09-10T13:36:17+00:00"
+        },
         {
             "name": "codeigniter4/framework",
             "version": "v4.5.5",
@@ -2437,8 +2490,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "benedmunds/codeigniter-ion-auth": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

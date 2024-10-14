@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use \IonAuth\Libraries\IonAuth;
 
 /**
  * Class BaseController
@@ -42,7 +43,10 @@ abstract class BaseController extends Controller
      * The creation of dynamic property is deprecated in PHP 8.2.
      */
     // protected $session;
-
+    protected $ionAuth;
+    protected $session;
+    protected $isLogged;
+    protected $username;
     /**
      * @return void
      */
@@ -51,8 +55,18 @@ abstract class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
 
-        // E.g.: $this->session = \Config\Services::session();
+        $this->ionAuth = new IonAuth();
+        $this->session = \Config\Services::session();
+        
+        $this->isLogged = $this->ionAuth->loggedIn();
+
+        if ($this->isLogged) {
+            $this->username = $this->ionAuth->user()->row()->username;
+        } else {
+            $this->username = "Anonym";
+        }
+        
+        helper('form');
     }
 }
