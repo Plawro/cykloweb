@@ -50,7 +50,6 @@ $table->addRow(
 
 echo $table->generate();
 
-echo anchor('add-sloupec/novy', 'Přidat závodníka', 'class="btn btn-dark"');
 ?>
 
 <?=$this->endSection("content");?>

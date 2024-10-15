@@ -130,6 +130,14 @@ public function save()
         return view('race', $data);
     }
 
+    public function riders()
+    {
+        $data['rider'] = $this->riderModel->orderBy("id", "asc")->paginate(25);
+        $data['pager'] = $this->riderModel->pager;
+        $data["title"] = "Závodníci";
+        echo view('riders', $data);
+    }
+
     public function rider($id)
     {
         $data['isPDF'] = false;
@@ -234,5 +242,59 @@ public function save()
         
         $this->riderModel->save($data);
         return redirect()->route('rider/1');
+    }
+
+    function editSloupec($riderData) {
+        $id = $this->riderModel->where('id', $riderData)->findAll()[0]->id;
+        $data["riders"] = $this->riderModel->find($id);
+        
+        $data["title"] = "Editace sloupce";
+       return view("edit-sloupec", $data);
+    }
+
+    function editSloupecComplete() {
+        $first_name = $this->request->getPost('first_name');
+        $last_name = $this->request->getPost('last_name');
+        $country = $this->request->getPost('country');
+        $date_of_birth = $this->request->getPost('date_of_birth');
+        $place_of_birth = $this->request->getPost('place_of_birth');
+        $photo = $this->request->getPost('photo');
+        $weight = $this->request->getPost('weight');
+        $height = $this->request->getPost('height');
+        $link = $this->request->getPost('link');
+        $place_link = $this->request->getPost('place_link');
+        $inResults = $this->request->getPost('inResults');
+
+        $data = array(
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'country' => $country,
+            'date_of_birth' => $date_of_birth,
+            'place_of_birth' => $place_of_birth,
+            'photo' => $photo,
+            'weight' => $weight,
+            'height' => $height,
+            'link' => $link,
+            'place_link' => $place_link,
+            'inResults' => $inResults
+        );
+    
+        $this->riderModel->save($data);
+        return redirect()->route('riders');
+    }
+
+    function deleteSloupec($riderData) {
+        $id = $this->riderModel->where('id', $riderData)->findAll()[0]->id;
+        $data["riders"] = $this->riderModel->find($id);
+
+        $data["title"] = "Smazání sloupce";
+        return view("delete-sloupec", $data);
+    }
+
+    function deleteSloupecComplete() {
+        $id = $this->request->getPost('id');
+
+        $return = $this->riderModel->delete($id);
+        return redirect()->route('riders');
     }
 }
