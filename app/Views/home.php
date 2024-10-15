@@ -1,5 +1,48 @@
 <?=$this->extend("layout/master");?>
 <?=$this->section("content");?>
+<?php if ($isLogged): ?>
+    <h2 class="p-3">Vítej uživateli <?php echo $username; ?></h2>
+<?php endif; ?>
+
+<p><?php echo $text; ?></p>
+
+<?php if ($isLogged && $isAdmin): ?>
+    <form method="post" action="<?php echo base_url('save'); ?>">
+        <div id="editor"><?php echo htmlspecialchars($text); ?></div>
+        <input type="hidden" name="editorContent" id="editorContent">
+        <button type="submit" class="btn btn-primary w-100">Uložit</button>
+    </form>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var quill = new Quill('#editor', {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        ['link', 'image'],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        ['clean']
+                    ]
+                }
+            });
+
+            document.querySelector('form').onsubmit = function() {
+                var editorContent = document.querySelector('#editorContent');
+                editorContent.value = quill.root.innerHTML;
+            };
+        });
+    </script>
+<?php else: ?>
+    <p id="editorContent"><?php echo $text; ?></p>
+ 
+<?php endif; ?>
+
+
 
 
 <div>
@@ -67,10 +110,10 @@ $template = array(
     );
     $table->setTemplate($template);
 
-    $table->setHeading('Název závodu','Vlajka');
+    $table->setHeading('Název závodu');
     foreach($array as $row){
         $flag = '<span class="fi fi-'.$row->country.'"></span>';
-        $table->addRow(anchor("race/".$row->id,$row->default_name),$flag);
+        $table->addRow(anchor("race/".$row->id,$row->default_name));
     } 
     echo $table->generate();
     echo $pager->links();

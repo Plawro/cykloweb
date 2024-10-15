@@ -37,6 +37,8 @@ class Home extends BaseController
         $this->riderModel = new RiderModel();
         $this->stageModel = new StageModel();
         $this->locationModel = new LocationModel();
+        $this->session = \Config\Services::session();
+        $this->db = \Config\Database::connect();
     }
 
     public function generatePDF()
@@ -69,20 +71,40 @@ class Home extends BaseController
 
 
     public function index()
-    {
-        $data['isPDF'] = false;
-        $data['isLogged'] = $this->ionAuth->loggedIn();
-        $data['isAdmin'] = $this->ionAuth->isAdmin();
-        $data['username'] = $this->username;
-        $data['title']="Cykloweb - domů";
-        $data['races'] = $this->raceModel->countAllResults();
-        $data['locations'] = $this->locationModel->countAllResults();
-        $data['riders'] = $this->riderModel->countAllResults();
-        $data['stages'] = $this->stageModel->countAllResults();
-        $data['array']= $this->raceModel->orderBy("id","asc")->paginate(25); //or findAll()
-        $data['pager'] = $this->raceModel->pager;
-        return view('home',$data);
+{
+    $data['isPDF'] = false;
+    $data['isLogged'] = $this->ionAuth->loggedIn();
+    $data['isAdmin'] = $this->ionAuth->isAdmin();
+    $data['username'] = $this->username;
+    $data['title'] = "Cykloweb - domů";
+
+    $data['races'] = $this->raceModel->countAllResults();
+    $data['locations'] = $this->locationModel->countAllResults();
+    $data['riders'] = $this->riderModel->countAllResults();
+    $data['stages'] = $this->stageModel->countAllResults();
+    $data['array'] = $this->raceModel->orderBy("id", "asc")->paginate(25);
+    $data['pager'] = $this->raceModel->pager;
+
+    $query = $this->db->query("SELECT content FROM textmain LIMIT 1");
+    $result = $query->getRow();
+    $data['text'] = $result ? $result->content : '';
+
+    return view('home', $data);
+}
+
+
+public function save()
+{
+    if (!$this->session->get('isLoggedIn') || !$this->session->get('isAdmin')) {
+        return redirect()->to('/');
     }
+
+    $newText = $this->request->getPost('editorContent');
+    $this->db->query("UPDATE textmain SET content = ? WHERE id = ?", [$newText, 1]);
+
+    return redirect()->to('/');
+}
+
 
     public function race($id)
     {
@@ -116,7 +138,33 @@ class Home extends BaseController
         return view('rider', $data);
     }
 
+    public function randomRider()
+    {
+        $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
+
+        
+        $totalRiders = $this->riderModel->countAllResults();
+        $randomNumber = rand(1, $totalRiders);
+
+        $data['rider'] = $this->riderModel->find($randomNumber);
+        $data['rider'] = $this->riderModel
+        ->select('rider.*, location.name as place_of_birth_name')
+        ->join('location', 'rider.place_of_birth = location.id', 'left')
+        ->where('rider.id', $randomNumber)
+        ->first();
+
+        if (!$data['rider']) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Rider not found');
+        }
+        $data['title'] = 'Závodník';
+        return view('rider', $data);
+    }
+
     function races(){
+        $data['isPDF'] = false;
         $data['isLogged'] = $this->ionAuth->loggedIn();
         $data['isAdmin'] = $this->ionAuth->isAdmin();
         $data['username'] = $this->username;
