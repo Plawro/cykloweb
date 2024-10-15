@@ -10,7 +10,7 @@
                     <a class="nav-link" href="<?=base_url('randomRider')?>">Závodník</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=base_url('genPDF')?>">PDF</a>
+                    <a class="nav-link" href="<?=base_url('genpdf')?>">PDF</a>
                 </li>
             </ul>
         </div>

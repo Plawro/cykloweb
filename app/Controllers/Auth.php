@@ -49,7 +49,8 @@ class Auth extends BaseController
 
         if ($this->ionAuth->loggedIn()) {
             if ($this->ionAuth->isAdmin()) {
-                return redirect()->to('admin/dashboard');
+                //return redirect()->to('admin/dashboard');
+                return redirect()->to('/');
             } else {
                 return redirect()->to('/');
             }

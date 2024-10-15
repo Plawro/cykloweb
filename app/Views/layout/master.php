@@ -10,6 +10,6 @@
             <?= $this->renderSection("content"); ?>
         </div>
 
-    <?= $this->include("layout/footer");?>
+        <?php if (!$isPDF){ echo $this->include("layout/footer"); } ?>
     </body>
 </html>

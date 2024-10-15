@@ -8,6 +8,7 @@ use App\Models\RaceModel as raceModel;
 use App\Models\RiderModel as riderModel;
 use App\Models\StageModel as stageModel;
 use App\Models\LocationModel as locationModel;
+use App\Models\TextModel as textModel;
 use App\Models\RaceYear as raceYear;
 use \IonAuth\Libraries\IonAuth;
 
@@ -18,6 +19,7 @@ use Dompdf\Options;
 class Home extends BaseController
 {
     var $riderModel;
+    var $textModel;
     var $raceYear;
     var $raceModel;
     var $stageModel;
@@ -44,15 +46,21 @@ class Home extends BaseController
     public function generatePDF()
     {
         $data['isPDF'] = true;
-        $data['isLogged'] = $this->ionAuth->loggedIn();
-        $data['isAdmin'] = $this->ionAuth->isAdmin();
-        $data['username'] = $this->username;
-        $data['title']="Cykloweb - domů";
-        $data['races'] = $this->raceModel->countAllResults();
-        $data['locations'] = $this->locationModel->countAllResults();
-        $data['riders'] = $this->riderModel->countAllResults();
-        $data['stages'] = $this->stageModel->countAllResults();
-        $data['array']= $this->raceModel->orderBy("id","asc")->paginate(25); //or findAll()
+    $data['isLogged'] = $this->ionAuth->loggedIn();
+    $data['isAdmin'] = $this->ionAuth->isAdmin();
+    $data['username'] = $this->username;
+    $data['title'] = "Cykloweb - domů";
+
+    $data['races'] = $this->raceModel->countAllResults();
+    $data['locations'] = $this->locationModel->countAllResults();
+    $data['riders'] = $this->riderModel->countAllResults();
+    $data['stages'] = $this->stageModel->countAllResults();
+    $data['array'] = $this->raceModel->orderBy("id", "asc")->paginate(25);
+    $data['pager'] = $this->raceModel->pager;
+
+    $query = $this->db->query("SELECT content FROM textmain LIMIT 1");
+    $result = $query->getRow();
+    $data['text'] = $result ? $result->content : '';
         $html = view('home', $data);
         $options = new Options();
         $options->set('isRemoteEnabled', true);
@@ -92,19 +100,23 @@ class Home extends BaseController
     return view('home', $data);
 }
 
-
+var $db;
 public function save()
 {
     if (!$this->session->get('isLoggedIn') || !$this->session->get('isAdmin')) {
         return redirect()->to('/');
     }
 
-    $newText = $this->request->getPost('editorContent');
-    $this->db->query("UPDATE textmain SET content = ? WHERE id = ?", [$newText, 1]);
-
-    return redirect()->to('/');
+    $newText = $this->request->getPost('nazev');
+    
+    if ($newText !== null) {
+        $this->textModel->update_this(1, $newText);
+        
+        return redirect()->to('/')->with('message', 'Uloženo!');
+    } else {
+        return redirect()->back()->with('error', 'Není co uložit.');
+    }
 }
-
 
     public function race($id)
     {

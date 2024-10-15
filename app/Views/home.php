@@ -1,46 +1,39 @@
 <?=$this->extend("layout/master");?>
 <?=$this->section("content");?>
-<?php if ($isLogged): ?>
-    <h2 class="p-3">Vítej uživateli <?php echo $username; ?></h2>
-<?php endif; ?>
+<?php if ($isLogged){
+    echo '<h2 class="p-3">Vítej uživateli '. $username . '</h2>';
+}else{
+  echo '<h2 class="p-3">Vítej Anonymní uživateli</h2>';
+}
+?>
 
 <p><?php echo $text; ?></p>
 
-<?php if ($isLogged && $isAdmin): ?>
-    <form method="post" action="<?php echo base_url('save'); ?>">
-        <div id="editor"><?php echo htmlspecialchars($text); ?></div>
-        <input type="hidden" name="editorContent" id="editorContent">
-        <button type="submit" class="btn btn-primary w-100">Uložit</button>
-    </form>
 
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<?php if (!$isPDF && $isAdmin && $isLogged){
+    echo '<div id="editor" class="h-25 p-3">' . htmlspecialchars($text) . '</div>';
+} ?>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var quill = new Quill('#editor', {
-                theme: 'snow',
-                modules: {
-                    toolbar: [
-                        [{ 'header': [1, 2, false] }],
-                        ['bold', 'italic', 'underline'],
-                        ['link', 'image'],
-                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                        ['clean']
-                    ]
-                }
-            });
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-            document.querySelector('form').onsubmit = function() {
-                var editorContent = document.querySelector('#editorContent');
-                editorContent.value = quill.root.innerHTML;
-            };
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['link', 'image'],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['clean']
+                ]
+            }
         });
-    </script>
-<?php else: ?>
-    <p id="editorContent"><?php echo $text; ?></p>
- 
-<?php endif; ?>
+    });
+</script>
+
 
 
 
@@ -116,7 +109,7 @@ $template = array(
         $table->addRow(anchor("race/".$row->id,$row->default_name));
     } 
     echo $table->generate();
-    echo $pager->links();
+    if (!$isPDF){ echo $pager->links(); }
 ?>
 
 
