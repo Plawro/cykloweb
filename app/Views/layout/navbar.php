@@ -7,7 +7,7 @@
                     <a class="nav-link" href="<?=base_url('races')?>">Závody</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=base_url('randomRider')?>">Závodník</a>
+                    <a class="nav-link" href="<?=base_url('riders')?>">Závodník</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=base_url('genpdf')?>">PDF</a>

@@ -45,7 +45,7 @@ class Home extends BaseController
 
     public function generatePDF()
     {
-        $data['isPDF'] = true;
+    $data['isPDF'] = true;
     $data['isLogged'] = $this->ionAuth->loggedIn();
     $data['isAdmin'] = $this->ionAuth->isAdmin();
     $data['username'] = $this->username;
@@ -132,6 +132,11 @@ public function save()
 
     public function riders()
     {
+        $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
+
         $data['rider'] = $this->riderModel->orderBy("id", "asc")->paginate(25);
         $data['pager'] = $this->riderModel->pager;
         $data["title"] = "Závodníci";
@@ -199,6 +204,11 @@ public function save()
      * @param int $id - id of the race year
      */
     function etapa($id){
+        $data['isPDF'] = false;
+        $data['isLogged'] = $this->ionAuth->loggedIn();
+        $data['isAdmin'] = $this->ionAuth->isAdmin();
+        $data['username'] = $this->username;
+
         $data['name'] = $this->raceYear->find($id);
         $data['isLogged'] = $this->ionAuth->loggedIn();
         $data['isAdmin'] = $this->ionAuth->isAdmin();
