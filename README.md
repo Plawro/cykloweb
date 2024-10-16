@@ -6,7 +6,7 @@ Aleš Hanáček - Vytvoření projektu na Github, vytvoření CodeIgniter projek
 <br>
 # TODO:
 Aleš Hanáček - bonus
-<br>Miroslav Merta - přidávání, editace, mazání, karty
+<br>Miroslav Merta - none
 <br>
 # TODO Společně:
 <br>Dokumentace
